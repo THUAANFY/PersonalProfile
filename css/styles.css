@@ -6,11 +6,7 @@
     --dark-bg: #0f172a;
     --darker-bg: #020617;
     --text-color: #f1f5f9;
-    --text-dark: #333333;
-    --bg-light: #f8f9fa;
-    --transition-speed: 0.3s;
     --sidebar-margin: 15px;
-    /* Khoảng cách sidebar với viền màn hình */
 
     /* Skill colors */
     --html-color: #e34c26;
@@ -31,22 +27,11 @@
 
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-light);
-    color: var(--text-dark);
+    background-color: var(--dark-bg);
+    color: var(--text-color);
     transition: background-color var(--transition-speed), color var(--transition-speed);
     overflow-x: hidden;
     min-height: 100vh;
-}
-
-/* Dark Mode */
-body.dark-mode {
-    --bg-light: #121212;
-    --text-dark: #e0e0e0;
-    --primary-color: #38bdf8;
-    --secondary-color: #0ea5e9;
-    --accent-color: #7dd3fc;
-    background-color: var(--bg-light);
-    color: var(--text-dark);
 }
 
 .container-fluid {
@@ -56,7 +41,6 @@ body.dark-mode {
 .row {
     margin: 0;
     margin-bottom: 1.5rem;
-    /* Thêm khoảng cách giữa các hàng */
 }
 
 /* Thêm khoảng cách giữa các cột */
@@ -69,24 +53,16 @@ body.dark-mode {
     background: var(--darker-bg);
     color: var(--text-color);
     min-height: calc(100vh - 2 * var(--sidebar-margin));
-    /* Chiều cao trừ đi margin trên và dưới */
     height: calc(100% - 2 * var(--sidebar-margin));
-    /* Chiều cao trừ đi margin trên và dưới */
     padding: 0;
     position: fixed;
     width: calc(26% - var(--sidebar-margin));
-    /* Chiều rộng trừ đi margin trái */
-    /* box-shadow: 0 0 30px rgba(14, 165, 233, 0.4); */
     transition: all var(--transition-speed);
     z-index: 100;
     overflow: hidden;
     border-radius: 15px;
-    /* Bo cả 4 góc */
     top: var(--sidebar-margin);
-    /* Cách viền trên */
     left: var(--sidebar-margin);
-    /* Cách viền trái */
-    /* bottom: var(--sidebar-margin); Cách viền dưới */
 }
 
 /* Particles.js container */
@@ -114,7 +90,7 @@ body.dark-mode {
     position: absolute;
     top: -50%;
     left: -50%;
-    width: 100%;
+    width: 150%;
     height: 200%;
     background: radial-gradient(circle at center, rgba(14, 165, 233, 0.1) 0%, rgba(14, 165, 233, 0) 70%);
     z-index: 1;
@@ -139,27 +115,19 @@ body.dark-mode {
     position: relative;
     z-index: 2;
     overflow-y: auto;
-    /* Cho phép cuộn dọc */
     max-height: 100%;
-
-    /* Ẩn thanh cuộn cho các trình duyệt khác nhau */
     -ms-overflow-style: none;
-    /* IE và Edge */
     scrollbar-width: none;
-    /* Firefox */
 }
 
-/* Ẩn thanh cuộn cho Chrome, Safari và Opera */
 .sidebar-content::-webkit-scrollbar {
     display: none;
 }
 
-/* Đảm bảo sidebar vẫn có thể cuộn trên thiết bị cảm ứng */
 .tech-sidebar {
     -webkit-overflow-scrolling: touch;
 }
 
-/* Add space between all direct children of sidebar-content */
 .sidebar-content>div:not(:last-child) {
     margin-bottom: 2rem;
 }
@@ -238,7 +206,7 @@ body.dark-mode {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 18px;
+    border-radius: 50%;
     position: relative;
     z-index: 2;
     border: 3px solid var(--primary-color);
@@ -611,8 +579,8 @@ body.dark-mode {
     background: linear-gradient(to right, var(--js-color), #ecc94b);
 }
 
-.skill-progress-fill.react {
-    background: linear-gradient(to right, var(--react-color), #4fd1c5);
+.skill-progress-fill.bootstrap {
+    background: linear-gradient(to right, var(--bootstrap-color), #8c6cee);
 }
 
 /* Tech Stats */
@@ -626,12 +594,15 @@ body.dark-mode {
 
 .stats-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     gap: 15px;
 }
 
 .stat-item {
     flex: 1;
+    min-width: 0;
+    /* Add this to allow flex items to shrink below their content size */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -641,9 +612,52 @@ body.dark-mode {
     transition: all 0.3s;
 }
 
-.stat-item:hover {
-    background: rgba(14, 165, 233, 0.1);
-    transform: translateY(-5px);
+/* Add a media query for screens around 1350px */
+@media (max-width: 1400px) {
+    .stats-container {
+        flex-wrap: wrap;
+    }
+
+    .stat-item {
+        flex: 0 0 calc(33.333% - 15px);
+        max-width: calc(33.333% - 15px);
+    }
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 1200px) {
+    .stat-item {
+        flex: 0 0 calc(33.333% - 10px);
+        max-width: calc(33.333% - 10px);
+        padding: 10px;
+    }
+
+    .stat-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .stats-container {
+        flex-wrap: wrap;
+    }
+
+    .stat-item {
+        flex: 0 0 calc(50% - 8px);
+        max-width: calc(50% - 8px);
+    }
+}
+
+@media (max-width: 575.98px) {
+    .stats-container {
+        flex-direction: column;
+    }
+
+    .stat-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 }
 
 .stat-icon {
@@ -829,39 +843,27 @@ body.dark-mode {
     padding: 0;
     position: relative;
     min-height: 100vh;
-    background-color: var(--bg-light);
+    background-color: var(--dark-bg);
     transition: background-color var(--transition-speed);
     margin-left: calc(25% + var(--sidebar-margin));
-    /* Margin left bằng chiều rộng sidebar + khoảng cách */
     width: calc(75% - 2 * var(--sidebar-margin));
-    /* Chiều rộng trừ đi margin phải và khoảng cách sidebar */
     padding-bottom: 2rem;
     margin-right: var(--sidebar-margin);
-    /* Cách viền phải */
-    /* margin-top: calc(60px + var(--sidebar-margin)); Cách navbar cố định */
 }
 
 /* Tech Navbar Styles */
 .tech-navbar {
     background-color: var(--darker-bg);
-    /* border-bottom: 1px solid rgba(56, 189, 248, 0.2); */
     padding: 1rem 1.5rem;
     position: sticky;
-    /* Navbar cố định */
-    /* top: var(--sidebar-margin); Cách viền trên */
     top: 15px;
     width: 101%;
-    /* Chiều rộng trừ đi margin phải và khoảng cách sidebar */
     left: calc(25% + 2 * var(--sidebar-margin));
-    /* Cách sidebar */
     right: var(--sidebar-margin);
-    /* Cách viền phải */
     overflow: hidden;
-    /* box-shadow: 0 4px 20px rgba(14, 165, 233, 0.3); */
     z-index: 100;
     transition: all var(--transition-speed);
     border-radius: 15px;
-    /* Bo cả 4 góc */
     margin-bottom: 1.5rem;
 }
 
@@ -1005,74 +1007,6 @@ body.dark-mode {
     position: relative;
 }
 
-/* Theme switch */
-.tech-navbar .theme-switch-wrapper {
-    margin: 0 0.5rem;
-    position: relative;
-    z-index: 1;
-}
-
-.tech-navbar .theme-switch {
-    display: inline-block;
-    height: 24px;
-    position: relative;
-    width: 48px;
-}
-
-.tech-navbar .theme-switch input {
-    display: none;
-}
-
-.tech-navbar .slider {
-    background: rgba(14, 165, 233, 0.2);
-    bottom: 0;
-    cursor: pointer;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: .4s;
-    border-radius: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5px;
-    border: 1px solid rgba(14, 165, 233, 0.3);
-}
-
-.tech-navbar .slider:before {
-    background-color: white;
-    bottom: 3px;
-    content: "";
-    height: 16px;
-    left: 4px;
-    position: absolute;
-    transition: .4s;
-    width: 16px;
-    border-radius: 50%;
-    z-index: 2;
-    box-shadow: 0 0 5px rgba(14, 165, 233, 0.5);
-}
-
-.tech-navbar .slider .fa-sun {
-    color: #f39c12;
-    font-size: 12px;
-    margin-left: auto;
-}
-
-.tech-navbar .slider .fa-moon {
-    color: #f1c40f;
-    font-size: 12px;
-}
-
-.tech-navbar input:checked+.slider {
-    background: rgba(14, 165, 233, 0.4);
-}
-
-.tech-navbar input:checked+.slider:before {
-    transform: translateX(24px);
-}
-
 /* Language selector */
 .tech-navbar .language-selector {
     position: relative;
@@ -1134,10 +1068,6 @@ body.dark-mode {
     margin-bottom: 2.5rem;
     position: relative;
     display: inline-block;
-    color: var(--text-dark);
-}
-
-.dark-mode .section-title {
     color: var(--text-color);
 }
 
@@ -1152,16 +1082,11 @@ body.dark-mode {
 }
 
 .section-content {
-    background-color: var(--bg-light);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     padding: 2rem;
     margin-bottom: 3rem;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.dark-mode .section-content {
-    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -1178,7 +1103,7 @@ body.dark-mode {
 }
 
 .skill-card {
-    background: var(--bg-light);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     padding: 2rem;
     text-align: center;
@@ -1186,13 +1111,8 @@ body.dark-mode {
     transition: all 0.3s;
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    height: 100%;
-}
-
-.dark-mode .skill-card {
-    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.05);
+    height: 100%;
 }
 
 .skill-card::before {
@@ -1210,10 +1130,6 @@ body.dark-mode {
 
 .skill-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
-
-.dark-mode .skill-card:hover {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
@@ -1244,26 +1160,18 @@ body.dark-mode {
     margin-bottom: 1rem;
     position: relative;
     z-index: 1;
-    color: var(--text-dark);
-}
-
-.dark-mode .skill-card h4 {
     color: var(--text-color);
 }
 
 .skill-level {
     width: 100%;
     height: 8px;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 4px;
     overflow: hidden;
     margin-bottom: 0.5rem;
     position: relative;
     z-index: 1;
-}
-
-.dark-mode .skill-level {
-    background: rgba(255, 255, 255, 0.1);
 }
 
 .skill-progress {
@@ -1275,14 +1183,10 @@ body.dark-mode {
 
 .skill-percent {
     font-size: 0.9rem;
-    color: var(--text-dark);
+    color: var(--text-color);
     opacity: 0.7;
     position: relative;
     z-index: 1;
-}
-
-.dark-mode .skill-percent {
-    color: var(--text-color);
 }
 
 /* Timeline */
@@ -1315,12 +1219,8 @@ body.dark-mode {
     height: 16px;
     border-radius: 50%;
     background: var(--primary-color);
-    border: 3px solid var(--bg-light);
+    border: 3px solid var(--dark-bg);
     z-index: 1;
-}
-
-.dark-mode .timeline-dot {
-    border-color: var(--bg-light);
 }
 
 .timeline-date {
@@ -1337,25 +1237,16 @@ body.dark-mode {
 }
 
 .timeline-content {
-    background: var(--bg-light);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     padding: 2rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.dark-mode .timeline-content {
-    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .timeline-content h4 {
     font-size: 1.2rem;
     margin-bottom: 0.25rem;
-    color: var(--text-dark);
-}
-
-.dark-mode .timeline-content h4 {
     color: var(--text-color);
 }
 
@@ -1367,10 +1258,6 @@ body.dark-mode {
 
 .timeline-content p {
     margin-bottom: 1rem;
-    color: var(--text-dark);
-}
-
-.dark-mode .timeline-content p {
     color: var(--text-color);
 }
 
@@ -1391,27 +1278,18 @@ body.dark-mode {
 
 /* Project Cards */
 .project-card {
-    background: var(--bg-light);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: all 0.3s;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     height: 100%;
     margin-bottom: 2.5rem;
 }
 
-.dark-mode .project-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
-
-.dark-mode .project-card:hover {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
@@ -1486,21 +1364,13 @@ body.dark-mode {
 .project-info h4 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    color: var(--text-dark);
-}
-
-.dark-mode .project-info h4 {
     color: var(--text-color);
 }
 
 .project-info p {
     margin-bottom: 1rem;
-    color: var(--text-dark);
-    opacity: 0.8;
-}
-
-.dark-mode .project-info p {
     color: var(--text-color);
+    opacity: 0.8;
 }
 
 .project-tech {
@@ -1520,16 +1390,11 @@ body.dark-mode {
 
 /* Contact Section */
 .contact-info-card {
-    background: var(--bg-light);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     padding: 2.5rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     height: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.dark-mode .contact-info-card {
-    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -1554,20 +1419,12 @@ body.dark-mode {
 .contact-info-item h5 {
     font-size: 1rem;
     margin-bottom: 0.25rem;
-    color: var(--text-dark);
-}
-
-.dark-mode .contact-info-item h5 {
     color: var(--text-color);
 }
 
 .contact-info-item p {
-    color: var(--text-dark);
-    opacity: 0.8;
-}
-
-.dark-mode .contact-info-item p {
     color: var(--text-color);
+    opacity: 0.8;
 }
 
 .contact-social {
@@ -1595,41 +1452,26 @@ body.dark-mode {
 }
 
 .contact-form {
-    background: var(--bg-light);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     padding: 2.5rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     height: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.dark-mode .contact-form {
-    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .contact-form h4 {
-    color: var(--text-dark);
-}
-
-.dark-mode .contact-form h4 {
     color: var(--text-color);
 }
 
 .form-control {
-    background: transparent;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    color: var(--text-dark);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
     transition: all 0.3s;
     border-radius: 10px;
     padding: 12px 15px;
     margin-bottom: 1.5rem;
-}
-
-.dark-mode .form-control {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--text-color);
-    background: rgba(255, 255, 255, 0.05);
 }
 
 .form-control:focus {
@@ -1639,26 +1481,19 @@ body.dark-mode {
 
 /* Footer */
 .footer {
-    background: var(--bg-light);
+    background: var(--darker-bg);
     padding: 2rem 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    color: var(--text-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
     transition: background-color var(--transition-speed);
     margin-top: 2rem;
     border-radius: 15px 15px 0 0;
-}
-
-.dark-mode .footer {
-    background: var(--bg-light);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--text-color);
 }
 
 /* Responsive Styles */
 @media (max-width: 991.98px) {
     :root {
         --sidebar-margin: 10px;
-        /* Giảm khoảng cách trên thiết bị nhỏ hơn */
     }
 
     .tech-sidebar {
@@ -1672,15 +1507,12 @@ body.dark-mode {
     .main-content {
         margin-left: var(--sidebar-margin);
         width: calc(100% - 2 * var(--sidebar-margin));
-        /* margin-top: calc(60px + 2 * var(--sidebar-margin)); Cách navbar cố định */
         margin-top: 30px;
-        /* Cách navbar cố định */
     }
 
     .tech-navbar {
         left: var(--sidebar-margin);
         top: 5px;
-        /* top: var(--sidebar-margin); */
         width: 100%;
     }
 
@@ -1735,7 +1567,6 @@ body.dark-mode {
 @media (max-width: 767.98px) {
     :root {
         --sidebar-margin: 8px;
-        /* Giảm khoảng cách trên thiết bị nhỏ hơn */
     }
 
     .sidebar-content {
@@ -1790,7 +1621,6 @@ body.dark-mode {
 @media (max-width: 575.98px) {
     :root {
         --sidebar-margin: 5px;
-        /* Giảm khoảng cách trên thiết bị nhỏ nhất */
     }
 
     .stats-container {
@@ -1817,85 +1647,6 @@ body.dark-mode {
     .contact-info-item i {
         margin-bottom: 1rem;
     }
-}
-
-/* Ẩn thanh cuộn nhưng vẫn giữ chức năng cuộn ở sidebar */
-.sidebar-content {
-    /* Giữ nguyên các thuộc tính hiện tại */
-    padding: 2.5rem 1.8rem;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    z-index: 2;
-    overflow-y: auto;
-    /* Cho phép cuộn dọc */
-    max-height: 100%;
-
-    /* Ẩn thanh cuộn cho các trình duyệt khác nhau */
-    /* Chrome, Safari, Edge */
-    -ms-overflow-style: none;
-    /* IE và Edge */
-    scrollbar-width: none;
-    /* Firefox */
-}
-
-/* Ẩn thanh cuộn cho Chrome, Safari và Opera */
-.sidebar-content::-webkit-scrollbar {
-    display: none;
-}
-
-/* Đảm bảo sidebar vẫn có thể cuộn trên thiết bị cảm ứng */
-.tech-sidebar {
-    -webkit-overflow-scrolling: touch;
-}
-
-/* Tùy chọn: Thêm một chỉ báo cuộn nhỏ để người dùng biết có thể cuộn */
-.scroll-indicator {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 50px;
-    pointer-events: none;
-    opacity: 0.7;
-    transition: opacity 0.3s;
-    z-index: 10;
-    display: none;
-    /* Mặc định ẩn, chỉ hiển thị khi cần thiết */
-}
-
-.scroll-indicator::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 8px;
-    background: var(--primary-color);
-    border-radius: 4px;
-    transform: translateX(-50%);
-    animation: scrollIndicator 1.5s infinite;
-}
-
-@keyframes scrollIndicator {
-
-    0%,
-    100% {
-        transform: translateX(-50%) translateY(0);
-        opacity: 0.5;
-    }
-
-    50% {
-        transform: translateX(-50%) translateY(10px);
-        opacity: 1;
-    }
-}
-
-/* Hiển thị chỉ báo cuộn khi nội dung sidebar dài hơn chiều cao hiển thị */
-.sidebar-content.scrollable .scroll-indicator {
-    display: block;
 }
 
 /* Animation for active nav item */
@@ -1933,4 +1684,29 @@ body.dark-mode {
 /* Thêm bo góc cho tất cả các input */
 .form-control {
     border-radius: 10px;
+}
+
+/* Custom button styles */
+.btn-primary {
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
+}
+
+.btn-outline-primary {
+    border: 1px solid var(--primary-color);
+    color: var(--text-color);
+    background: transparent;
+}
+
+.btn-outline-primary:hover {
+    background: rgba(14, 165, 233, 0.1);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
 }
