@@ -1561,7 +1561,8 @@ body {
     }
 
     .stats-cards {
-        position: absolute;
+        display: none;
+        /* position: absolute;
         top: 10px;
         left: 10px;
         right: 10px;
@@ -1569,7 +1570,7 @@ body {
         flex-direction: column;
         justify-content: space-between;
         align-items: end;
-        gap: 8px;
+        gap: 8px; */
     }
 
     .stat-card {
