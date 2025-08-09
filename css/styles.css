@@ -856,7 +856,7 @@ body {
 .nen{
     background: var(--dark-bg);
     width: 100%;
-    height: 100px;
+    height: 50px;
     position: fixed;
     top: 0;
     z-index: 99;  /* Lower z-index than navbar */
@@ -1364,7 +1364,7 @@ body {
 
     .tech-navbar {
         left: var(--sidebar-margin);
-        top: 5px;
+        top: 10px;
         width: 100%;
         z-index: 1000; /* Ensure z-index is maintained */
     }
@@ -1422,6 +1422,47 @@ body {
         background: rgba(14, 165, 233, 0.2);
         border-radius: 10px;
     }
+
+    /* Fix intro section for mobile */
+    .intro-greeting {
+        font-size: 1.5rem;
+    }
+
+    .intro-tagline {
+        font-size: 1.1rem;
+    }
+
+    .intro-visual {
+        margin-top: 2rem;
+    }
+
+    .tech-badges {
+        position: static;
+        margin-top: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .stats-cards {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 1rem;
+        gap: 10px;
+    }
+
+    .stat-card {
+        width: 100px;
+        padding: 10px;
+    }
+
+    .stat-number {
+        font-size: 1.2rem;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+    }
 }
 
 @media (max-width: 767.98px) {
@@ -1476,6 +1517,73 @@ body {
     .timeline {
         padding-left: 25px;
     }
+
+    /* Mobile specific fixes for intro section */
+    .intro-greeting {
+        font-size: 1.3rem;
+        text-align: left;
+    }
+
+    .intro-tagline {
+        font-size: 1rem;
+        text-align: left;
+        margin-bottom: 1rem;
+    }
+
+    .intro-description {
+        text-align: left;
+        font-size: 0.9rem;
+    }
+
+    .intro-buttons {
+        text-align: center;
+    }
+
+    .intro-buttons .btn {
+        width: 100%;
+        margin: 0.25rem 0;
+    }
+
+    .tech-badges {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        gap: 5px;
+    }
+
+    .tech-badgee {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+    }
+
+    .stats-cards {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: end;
+        gap: 8px;
+    }
+
+    .stat-card {
+        width: 80px;
+        padding: 8px;
+    }
+
+    .stat-number {
+        font-size: 1rem;
+    }
+
+    .stat-label {
+        font-size: 0.6rem;
+    }
 }
 
 @media (max-width: 575.98px) {
@@ -1506,6 +1614,51 @@ body {
 
     .contact-info-item i {
         margin-bottom: 1rem;
+    }
+
+    /* Small mobile fixes */
+    .intro-greeting {
+        font-size: 1.2rem;
+    }
+
+    .intro-tagline {
+        font-size: 0.9rem;
+    }
+
+    .intro-description {
+        font-size: 0.85rem;
+    }
+
+    .tech-badges {
+        bottom: 8px;
+        left: 8px;
+        right: 8px;
+        gap: 4px;
+    }
+
+    .stats-cards {
+        top: 8px;
+        left: 8px;
+        right: 8px;
+        gap: 6px;
+    }
+
+    .stat-card {
+        width: 70px;
+        padding: 6px;
+    }
+
+    .stat-number {
+        font-size: 0.9rem;
+    }
+
+    .stat-label {
+        font-size: 0.55rem;
+    }
+
+    .tech-badgee {
+        font-size: 0.65rem;
+        padding: 3px 6px;
     }
 }
 
