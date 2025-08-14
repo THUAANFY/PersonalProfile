@@ -17,6 +17,9 @@
     --sass-color: #cc6699;
     --git-color: #f05032;
     --node-color: #339933;
+    --java-color: #f89820;
+    --spring-color: #6db33f;
+    --thymeleaf-color: #005f0f;
 }
 
 * {
@@ -47,8 +50,6 @@ body {
 .row>[class^="col-"] {
     padding: 0.75rem;
 }
-
-
 
 /* Tech Sidebar Styles */
 .tech-sidebar {
@@ -853,17 +854,17 @@ body {
     margin-right: var(--sidebar-margin);
 }
 
-.nen{
+.nen {
     background: var(--dark-bg);
     width: 100%;
     height: 50px;
     position: fixed;
     top: 0;
-    z-index: 99;  /* Lower z-index than navbar */
+    z-index: 99;
+    /* Lower z-index than navbar */
     border-radius: 15px;
     margin-bottom: 10px;
 }
-
 
 /* Tech Navbar Styles */
 .tech-navbar {
@@ -1128,20 +1129,113 @@ body {
     margin-bottom: 2rem;
 }
 
-/* Adjust section title for other sections */
-/* .section-title {
-    margin-top: 1rem;
-} */
+/* Skills container - Updated for 4 columns layout */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
 
-/* Ensure proper spacing for all sections except intro */
-/* #ky-nang,
-#kinh-nghiem,
-#du-an,
-#lien-he, 
-#gioi-thieu {
-    padding-top: 1rem;
-} */
+.skill-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
 
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.skill-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.skill-card h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+/* Remove skill level and progress bars */
+.skill-level {
+    display: none;
+}
+
+.skill-progress {
+    display: none;
+}
+
+.skill-percent {
+    display: none;
+}
+
+/* Hover effects for each skill with specific colors */
+.skill-card[data-skill="HTML5"]:hover .skill-icon {
+    color: var(--html-color);
+    text-shadow: 0 0 20px var(--html-color);
+}
+
+.skill-card[data-skill="CSS3"]:hover .skill-icon {
+    color: var(--css-color);
+    text-shadow: 0 0 20px var(--css-color);
+}
+
+.skill-card[data-skill="JavaScript"]:hover .skill-icon {
+    color: var(--js-color);
+    text-shadow: 0 0 20px var(--js-color);
+}
+
+.skill-card[data-skill="React"]:hover .skill-icon {
+    color: var(--react-color);
+    text-shadow: 0 0 20px var(--react-color);
+}
+
+.skill-card[data-skill="Bootstrap"]:hover .skill-icon {
+    color: var(--bootstrap-color);
+    text-shadow: 0 0 20px var(--bootstrap-color);
+}
+
+.skill-card[data-skill="Sass"]:hover .skill-icon {
+    color: var(--sass-color);
+    text-shadow: 0 0 20px var(--sass-color);
+}
+
+.skill-card[data-skill="Git"]:hover .skill-icon {
+    color: var(--git-color);
+    text-shadow: 0 0 20px var(--git-color);
+}
+
+.skill-card[data-skill="Node.js"]:hover .skill-icon {
+    color: var(--node-color);
+    text-shadow: 0 0 20px var(--node-color);
+}
+
+.skill-card[data-skill="Java"]:hover .skill-icon {
+    color: var(--java-color);
+    text-shadow: 0 0 20px var(--java-color);
+}
+
+.skill-card[data-skill="Spring Boot"]:hover .skill-icon {
+    color: var(--spring-color);
+    text-shadow: 0 0 20px var(--spring-color);
+}
+
+.skill-card[data-skill="Thymeleaf"]:hover .skill-icon {
+    color: var(--thymeleaf-color);
+    text-shadow: 0 0 20px var(--thymeleaf-color);
+}
 
 /* Additional styles for the enhanced introduction section */
 .intro-text {
@@ -1366,14 +1460,16 @@ body {
         left: var(--sidebar-margin);
         top: 10px;
         width: 100%;
-        z-index: 1000; /* Ensure z-index is maintained */
+        z-index: 1000;
+        /* Ensure z-index is maintained */
     }
-    
+
     .nen {
         left: var(--sidebar-margin);
         top: 0px;
         width: 100%;
-        z-index: 99; /* Keep lower than navbar */
+        z-index: 99;
+        /* Keep lower than navbar */
     }
 
     .content-wrapper {
@@ -1421,6 +1517,12 @@ body {
     .tech-navbar .navbar-nav::-webkit-scrollbar-thumb {
         background: rgba(14, 165, 233, 0.2);
         border-radius: 10px;
+    }
+
+    /* Skills responsive - 2 columns on tablet */
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
 
     /* Fix intro section for mobile */
@@ -1501,8 +1603,10 @@ body {
         font-size: 1.8rem;
     }
 
+    /* Skills responsive - 1 column on mobile */
     .skills-container {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
     }
 
     .section-content {
@@ -1729,3 +1833,20 @@ body {
 html {
     scroll-padding-top: 140px;
 }
+
+/* Skills section images - grayscale by default, color on hover */
+.skill-icon img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+}
+
+/* Updated hover effect to target img inside skill-icon */
+.skill-card:hover .skill-icon img {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+/* Removed old skill-image styles that weren't being used */
