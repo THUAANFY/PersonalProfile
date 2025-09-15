@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Declare AOS and particlesJS variables
+    const AOS = window.AOS
+    const particlesJS = window.particlesJS
+
     // Initialize AOS animation library
-    if (typeof AOS !== "undefined") {
+    if (AOS) {
         AOS.init({
             duration: 800,
             easing: "ease-in-out",
@@ -10,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Initialize particles.js
-    if (typeof particlesJS !== "undefined") {
+    if (particlesJS) {
         particlesJS("particles-js", {
             particles: {
                 number: {
@@ -138,6 +142,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (navbarCollapse.classList.contains("show")) {
                 navbarCollapse.classList.remove("show")
             }
+
+            // Re-initialize AOS for the new section
+            if (AOS) {
+                AOS.refresh()
+            }
         })
     })
 
@@ -169,7 +178,6 @@ document.addEventListener("DOMContentLoaded", () => {
         progressBars.forEach((bar) => {
             const width = bar.style.width
             bar.style.width = "0%"
-
             setTimeout(() => {
                 bar.style.width = width
             }, 100)
@@ -184,6 +192,51 @@ document.addEventListener("DOMContentLoaded", () => {
     skillsLink.addEventListener("click", () => {
         setTimeout(animateMainSkills, 300)
     })
+
+    // Enhanced project cards animations
+    function initProjectAnimations() {
+        const projectCards = document.querySelectorAll(".project-card")
+
+        // Animate projects when they come into view
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = "1"
+                            entry.target.style.transform = "translateY(0)"
+                        }, index * 100)
+                    }
+                })
+            },
+            { threshold: 0.1 },
+        )
+
+        projectCards.forEach((card) => {
+            card.style.opacity = "0"
+            card.style.transform = "translateY(30px)"
+            card.style.transition = "all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)"
+            observer.observe(card)
+        })
+
+        // Add stagger animation for tech tags
+        projectCards.forEach((card) => {
+            const techTags = card.querySelectorAll(".project-tech span")
+            card.addEventListener("mouseenter", () => {
+                techTags.forEach((tag, index) => {
+                    setTimeout(() => {
+                        tag.style.transform = "translateY(-2px) scale(1.05)"
+                    }, index * 50)
+                })
+            })
+
+            card.addEventListener("mouseleave", () => {
+                techTags.forEach((tag) => {
+                    tag.style.transform = "translateY(0) scale(1)"
+                })
+            })
+        })
+    }
 
     // Contact form submission
     const contactForm = document.querySelector(".contact-form")
@@ -270,16 +323,66 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Set tech stats values
     const projectCount = document.getElementById("projectCount")
-    const experienceYears = document.getElementById("experienceYears")
+    // const experienceYears = document.getElementById("experienceYears")
     const skillCount = document.getElementById("skillCount")
 
     setTimeout(() => {
         animateValue(projectCount, 0, 12, 2000)
-        animateValue(experienceYears, 0, 5, 2000)
-        animateValue(skillCount, 0, 8, 2000)
+        // animateValue(experienceYears, 0, 5, 2000)
+        animateValue(skillCount, 0, 7, 2000)
     }, 1000)
+
+    // Initialize project animations
+    initProjectAnimations()
 
     // Force dark mode
     document.body.classList.add("dark-mode")
     localStorage.setItem("theme", "dark")
+
+    async function loadExperienceTimeline() {
+        try {
+            const response = await fetch("data/experience.json")
+            const data = await response.json()
+
+            const timelineContainer = document.getElementById("experience-timeline")
+
+            data.timeline.forEach((item, index) => {
+                const timelineItem = document.createElement("div")
+                timelineItem.className = "timeline-item"
+                timelineItem.setAttribute("data-aos", "fade-right")
+                if (index > 0) {
+                    timelineItem.setAttribute("data-aos-delay", (index * 100).toString())
+                }
+
+                // Create tags HTML
+                const tagsHtml = item.tags.map((tag) => `<span>${tag}</span>`).join("")
+
+                timelineItem.innerHTML = `
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">
+                        <span>${item.date}</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>${item.title}</h4>
+                        <h5>${item.subtitle}</h5>
+                        <p>${item.description}</p>
+                        <div class="timeline-tags">
+                            ${tagsHtml}
+                        </div>
+                    </div>
+                `
+
+                timelineContainer.appendChild(timelineItem)
+            })
+
+            // Re-initialize AOS for new elements
+            if (AOS) {
+                AOS.refresh()
+            }
+        } catch (error) {
+            console.error("Error loading experience timeline:", error)
+        }
+    }
+
+    loadExperienceTimeline()
 })

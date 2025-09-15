@@ -1,0 +1,53 @@
+{
+    "timeline": [
+        {
+            "date": "06 - 2025",
+            "title": "HỆ THỐNG QUẢN LÝ PHÒNG TRỌ",
+            "subtitle": "Dự Án Tốt Nghiệp",
+            "description": "Phát triển giao diện người dùng bằng HTML, CSS, JavaScript và Bootstrap. Tôi xây dựng các trang responsive, đảm bảo hiển thị tối ưu trên mọi thiết bị. Sử dụng JavaScript để xử lý các tương tác như validate form và tìm kiếm. Giao diện được thiết kế trực quan, dễ sử dụng, giúp quản lý thông tin phòng trọ hiệu quả.",
+            "tags": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "Bootstrap",
+                "Java"
+            ]
+        },
+        {
+            "date": "03 - 2025",
+            "title": "WEBSTE BÁN HÀNG CÔNG NGHỆ",
+            "subtitle": "Dự Án Assignment Cuối Muôn",
+            "description": "Website sử dụng các công nghệ như: Java, HTML, CSS, Javascript, Bootstrap, SQL Server, Spring Boot. Sử dụng IDE VS Code để xây dựng và phát triển nên website. Xây dựng và phát triển giao diện website bán hàng công nghệ cho 2 đối tượng người dùng (Admin và User).",
+            "tags": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "Bootstrap",
+                "Java"
+            ]
+        },
+        {
+            "date": "11 - 2024",
+            "title": "WEBSITE XEM PHIM ONLINE",
+            "subtitle": "Dự Án Assignment Cuối Muôn",
+            "description": "Sử dụng các công nghệ (Java, HTML, CSS, Bootstrap, SQLServer). Phát triển nền tảng website xem phim trực tuyến với các tính năng (đăng nhập/đăng ký, phát video, like, upload.) Tối ưu hóa lại giao diện tăng trải nghiệm cho người dùng.",
+            "tags": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "Bootstrap",
+                "Java"
+            ]
+        },
+        {
+            "date": "08 - 2024",
+            "title": "PHẦN MỀM QUẢN LÝ BÁN NƯỚC GIẢI",
+            "subtitle": "Dự Án Assignment Cuối Muôn",
+            "description": "Sử dụng ngôn ngữ Java kết hợp SQL Server để quản trị dữ liệu. Xây dựng giao diện bán nước giải khát trực tuyến bằng Java Swing dễ dàng sử dụng cho người dùng.",
+            "tags": [
+                "Java",
+                "SQL Server"
+            ]
+        }
+    ]
+}
