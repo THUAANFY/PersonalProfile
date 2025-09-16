@@ -26,6 +26,11 @@
             "alt": "Tailwind CSS"
         },
         {
+            "name": "WordPress",
+            "icon": "images/wordpress.png",
+            "alt": "WordPress"
+        },
+        {
             "name": "Git",
             "icon": "images/Git.png",
             "alt": "Git"
