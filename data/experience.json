@@ -27,7 +27,7 @@
         {
             "date": "03 - 2025",
             "title": "WEBSTE BÁN HÀNG CÔNG NGHỆ",
-            "subtitle": "Dự Án Assignment Cuối Muôn",
+            "subtitle": "Dự Án Assignment Cuối Môn",
             "description": "Website sử dụng các công nghệ như: Java, HTML, CSS, Javascript, Bootstrap, SQL Server, Spring Boot. Sử dụng IDE VS Code để xây dựng và phát triển nên website. Xây dựng và phát triển giao diện website bán hàng công nghệ cho 2 đối tượng người dùng (Admin và User).",
             "tags": [
                 "HTML",
@@ -40,7 +40,7 @@
         {
             "date": "11 - 2024",
             "title": "WEBSITE XEM PHIM ONLINE",
-            "subtitle": "Dự Án Assignment Cuối Muôn",
+            "subtitle": "Dự Án Assignment Cuối Môn",
             "description": "Sử dụng các công nghệ (Java, HTML, CSS, Bootstrap, SQLServer). Phát triển nền tảng website xem phim trực tuyến với các tính năng (đăng nhập/đăng ký, phát video, like, upload.) Tối ưu hóa lại giao diện tăng trải nghiệm cho người dùng.",
             "tags": [
                 "HTML",
@@ -53,7 +53,7 @@
         {
             "date": "08 - 2024",
             "title": "PHẦN MỀM QUẢN LÝ BÁN NƯỚC GIẢI",
-            "subtitle": "Dự Án Assignment Cuối Muôn",
+            "subtitle": "Dự Án Assignment Cuối Môn",
             "description": "Sử dụng ngôn ngữ Java kết hợp SQL Server để quản trị dữ liệu. Xây dựng giao diện bán nước giải khát trực tuyến bằng Java Swing dễ dàng sử dụng cho người dùng.",
             "tags": [
                 "Java",

@@ -327,7 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const skillCount = document.getElementById("skillCount")
 
     setTimeout(() => {
-        animateValue(projectCount, 0, 12, 2000)
+        animateValue(projectCount, 0, 7, 2000)
         // animateValue(experienceYears, 0, 5, 2000)
         animateValue(skillCount, 0, 7, 2000)
     }, 1000)
@@ -421,6 +421,61 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    async function loadProjectsFromJSON() {
+        try {
+            const response = await fetch("data/projects.json")
+            const data = await response.json()
+
+            const projectsContainer = document.getElementById("projects-container")
+
+            data.projects.forEach((project, index) => {
+                const projectCard = document.createElement("div")
+                projectCard.className = "col-md-6 mb-4"
+                projectCard.setAttribute("data-aos", project.aos.effect)
+                if (project.aos.delay > 0) {
+                    projectCard.setAttribute("data-aos-delay", project.aos.delay.toString())
+                }
+
+                // Create technologies HTML
+                const technologiesHtml = project.technologies.map((tech) => `<span>${tech}</span>`).join("")
+
+                projectCard.innerHTML = `
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="${project.image}" alt="${project.alt}">
+                            
+                        </div>
+                        <div class="project-info">
+                            <h4>${project.title}</h4>
+                            <p>${project.description}</p>
+                            <div class="project-tech">
+                                ${technologiesHtml}
+                            </div>
+                            <div class="project-links">
+                                <a href="${project.links.demo}" class="project-link" title="Xem demo"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="${project.links.github}" class="project-github" title="View Code"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                `
+
+                projectsContainer.appendChild(projectCard)
+            })
+
+            // Re-initialize AOS for new elements
+            if (AOS) {
+                AOS.refresh()
+            }
+
+            // Re-initialize project animations for dynamically loaded projects
+            initProjectAnimations()
+        } catch (error) {
+            console.error("Error loading projects:", error)
+        }
+    }
+
     loadExperienceTimeline()
     loadSkillsFromJSON()
+
+    loadProjectsFromJSON()
 })

@@ -1,0 +1,147 @@
+{
+    "projects": [
+        {
+            "title": "Hệ Thống Quản Lý Phòng Trọ",
+            "image": "images/qlphongtro.jpg",
+            "alt": "Hệ Thống Quản Lý Phòng Trọ",
+            "description": "Phát triển giao diện người dùng bằng HTML, CSS, JavaScript và Bootstrap. Tôi xây dựng các trang responsive, đảm bảo hiển thị tối ưu trên mọi thiết bị. Sử dụng JavaScript để xử lý các tương tác như validate form và tìm kiếm. Giao diện được thiết kế trực quan, dễ sử dụng, giúp quản lý thông tin phòng trọ hiệu quả.",
+            "links": {
+                "demo": "#",
+                "github": "https://github.com/phanhuy250205/NhaTroXanh"
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "Bootstrap",
+                "Java"
+            ],
+            "aos": {
+                "effect": "zoom-in",
+                "delay": 0
+            }
+        },
+        {
+            "title": "Website Bán Hàng Công Nghệ",
+            "image": "images/webcongnghe.jpg",
+            "alt": "Website Bán Hàng Công Nghệ",
+            "description": "Website sử dụng các công nghệ như: Java, HTML, CSS, Javascript, Bootstrap, SQL Server, Spring Boot. Sử dụng IDE VS Code để xây dựng và phát triển nên website. Xây dựng và phát triển giao diện website bán hàng công nghệ cho 2 đối tượng người dùng (Admin và User).",
+            "links": {
+                "demo": "#",
+                "github": "https://github.com/THUAANFY/Project_Java6"
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "Bootstrap",
+                "Java"
+            ],
+            "aos": {
+                "effect": "zoom-in",
+                "delay": 100
+            }
+        },
+        {
+            "title": "Website Xem Phim Online",
+            "image": "images/none.jpg",
+            "alt": "Website Xem Phim Online",
+            "description": "Sử dụng các công nghệ (Java, HTML, CSS, Bootstrap, SQLServer). Phát triển nền tảng website xem phim trực tuyến với các tính năng (đăng nhập/đăng ký, phát video, like, upload.) Tối ưu hóa lại giao diện tăng trải nghiệm cho người dùng.",
+            "links": {
+                "demo": "#",
+                "github": "https://github.com/THUAANFY/WebXemPhim"
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "Bootstrap",
+                "Java"
+            ],
+            "aos": {
+                "effect": "zoom-in",
+                "delay": 100
+            }
+        },
+        {
+            "title": "Portfolio Cá Nhân",
+            "image": "images/profile.jpg",
+            "alt": "Portfolio Cá Nhân",
+            "description": "Sử dụng các công nghệ (Java, HTML, CSS, Bootstrap, SQLServer). Phát triển nền tảng website xem phim trực tuyến với các tính năng (đăng nhập/đăng ký, phát video, like, upload.) Tối ưu hóa lại giao diện tăng trải nghiệm cho người dùng.",
+            "links": {
+                "demo": "#",
+                "github": "https://github.com/THUAANFY/PersonalProfile"
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "Bootstrap"
+            ],
+            "aos": {
+                "effect": "zoom-in",
+                "delay": 100
+            }
+        },
+        {
+            "title": "Spotify Clone",
+            "image": "images/Spotify.jpg",
+            "alt": "Spotify Clone",
+            "description": "Sử dụng các công nghệ (Java, HTML, CSS, Bootstrap, SQLServer). Phát triển nền tảng website xem phim trực tuyến với các tính năng (đăng nhập/đăng ký, phát video, like, upload.) Tối ưu hóa lại giao diện tăng trải nghiệm cho người dùng.",
+            "links": {
+                "demo": "https://thuaanfy.github.io/Spotify/",
+                "github": "https://github.com/THUAANFY/Spotify"
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "TailwindCSS"
+            ],
+            "aos": {
+                "effect": "zoom-in",
+                "delay": 100
+            }
+        },
+        {
+            "title": "To Do List App",
+            "image": "images/task.jpg",
+            "alt": "To Do List App",
+            "description": "Sử dụng các công nghệ (Java, HTML, CSS, Bootstrap, SQLServer). Phát triển nền tảng website xem phim trực tuyến với các tính năng (đăng nhập/đăng ký, phát video, like, upload.) Tối ưu hóa lại giao diện tăng trải nghiệm cho người dùng.",
+            "links": {
+                "demo": "https://thuaanfy.github.io/WebQuanLiCongViec/",
+                "github": "https://github.com/THUAANFY/WebQuanLiCongViec"
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "TailwindCSS"
+            ],
+            "aos": {
+                "effect": "zoom-in",
+                "delay": 100
+            }
+        },
+        {
+            "title": "Website Câu Hỏi Trắc Nghiệm",
+            "image": "images/question.jpg",
+            "alt": "Website Câu Hỏi Trắc Nghiệm",
+            "description": "Sử dụng các công nghệ (Java, HTML, CSS, Bootstrap, SQLServer). Phát triển nền tảng website xem phim trực tuyến với các tính năng (đăng nhập/đăng ký, phát video, like, upload.) Tối ưu hóa lại giao diện tăng trải nghiệm cho người dùng.",
+            "links": {
+                "demo": "https://thuaanfy.github.io/tracnghiemchinhtri/",
+                "github": "https://github.com/THUAANFY/tracnghiemchinhtri"
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "TailwindCSS"
+            ],
+            "aos": {
+                "effect": "zoom-in",
+                "delay": 100
+            }
+        }
+    ]
+}
