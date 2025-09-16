@@ -160,13 +160,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Animate skills progress bars in sidebar
     function animateSidebarSkills() {
-        const skillBars = document.querySelectorAll(".skill-progress-fill")
-
-        skillBars.forEach((bar) => {
-            const value = bar.parentElement.parentElement.getAttribute("data-value")
+        const skillBadges = document.querySelectorAll(".skill-badge")
+        skillBadges.forEach((badge, index) => {
+            badge.style.opacity = "0"
+            badge.style.transform = "translateY(20px)"
             setTimeout(() => {
-                bar.style.width = value + "%"
-            }, 300)
+                badge.style.opacity = "1"
+                badge.style.transform = "translateY(0)"
+                badge.style.transition = "all 0.6s ease"
+            }, index * 100)
         })
     }
 
@@ -443,7 +445,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="project-card">
                         <div class="project-img">
                             <img src="${project.image}" alt="${project.alt}">
-                            
                         </div>
                         <div class="project-info">
                             <h4>${project.title}</h4>

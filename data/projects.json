@@ -69,7 +69,7 @@
             "alt": "Portfolio Cá Nhân",
             "description": "Sử dụng các công nghệ (Java, HTML, CSS, Bootstrap, SQLServer). Phát triển nền tảng website xem phim trực tuyến với các tính năng (đăng nhập/đăng ký, phát video, like, upload.) Tối ưu hóa lại giao diện tăng trải nghiệm cho người dùng.",
             "links": {
-                "demo": "#",
+                "demo": "https://thuaanfy.github.io/PersonalProfile/",
                 "github": "https://github.com/THUAANFY/PersonalProfile"
             },
             "technologies": [
