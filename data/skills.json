@@ -1,0 +1,59 @@
+{
+    "skills": [
+        {
+            "name": "HTML5",
+            "icon": "images/HTML.png",
+            "alt": "HTML5"
+        },
+        {
+            "name": "CSS3",
+            "icon": "images/CSS.png",
+            "alt": "CSS3"
+        },
+        {
+            "name": "JavaScript",
+            "icon": "images/JavaScript.png",
+            "alt": "JavaScript"
+        },
+        {
+            "name": "React",
+            "icon": "images/react.png",
+            "alt": "React"
+        },
+        {
+            "name": "Bootstrap",
+            "icon": "images/Bootstrap.png",
+            "alt": "Bootstrap"
+        },
+        {
+            "name": "Sass",
+            "icon": "images/Sass.png",
+            "alt": "Sass"
+        },
+        {
+            "name": "Git",
+            "icon": "images/Git.png",
+            "alt": "Git"
+        },
+        {
+            "name": "Node.js",
+            "icon": "images/Node.js.png",
+            "alt": "Node.JS"
+        },
+        {
+            "name": "Java",
+            "icon": "images/java.png",
+            "alt": "Java"
+        },
+        {
+            "name": "Spring Boot",
+            "icon": "images/10.png",
+            "alt": "Spring Boot"
+        },
+        {
+            "name": "Thymeleaf",
+            "icon": "images/11.png",
+            "alt": "Thymeleaf"
+        }
+    ]
+}

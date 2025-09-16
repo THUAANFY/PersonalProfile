@@ -384,5 +384,43 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    async function loadSkillsFromJSON() {
+        try {
+            const response = await fetch("data/skills.json")
+            const data = await response.json()
+
+            const skillsContainer = document.getElementById("skills-container")
+
+            data.skills.forEach((skill, index) => {
+                const skillCard = document.createElement("div")
+                skillCard.className = "skill-card"
+                skillCard.setAttribute("data-skill", skill.name)
+                skillCard.setAttribute("data-aos", "zoom-in")
+                skillCard.setAttribute("data-aos-duration", "500")
+                if (index > 0) {
+                    skillCard.setAttribute("data-aos-delay", (index * 50).toString())
+                }
+
+                skillCard.innerHTML = `
+                    <div class="skill-icon">
+                        <img src="${skill.icon}" alt="${skill.alt}"
+                            style="width: 60px; height: 60px; object-fit: contain;">
+                    </div>
+                    <h4>${skill.name}</h4>
+                `
+
+                skillsContainer.appendChild(skillCard)
+            })
+
+            // Re-initialize AOS for new elements
+            if (AOS) {
+                AOS.refresh()
+            }
+        } catch (error) {
+            console.error("Error loading skills:", error)
+        }
+    }
+
     loadExperienceTimeline()
+    loadSkillsFromJSON()
 })

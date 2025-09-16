@@ -2,6 +2,17 @@
     "timeline": [
         {
             "date": "06 - 2025",
+            "title": "THỰC TẬP TẠI DANATECH AGNECY",
+            "subtitle": "Thực Tập",
+            "description": "Có kinh nghiệm thực tế trong việc phát triển website bằng WordPress, sử dụng theme Flatsome và UX Builder để thiết kế giao diện trực quan, responsive và bắt mắt. Tích cực tối ưu hóa hiệu suất website, đảm bảo trải nghiệm người dùng (UX) mượt mà. Quản lý nội dung đến tối ưu hóa SEO",
+            "tags": [
+                "WordPress",
+                "Flatsome",
+                "UX Builder"
+            ]
+        },
+        {
+            "date": "06 - 2025",
             "title": "HỆ THỐNG QUẢN LÝ PHÒNG TRỌ",
             "subtitle": "Dự Án Tốt Nghiệp",
             "description": "Phát triển giao diện người dùng bằng HTML, CSS, JavaScript và Bootstrap. Tôi xây dựng các trang responsive, đảm bảo hiển thị tối ưu trên mọi thiết bị. Sử dụng JavaScript để xử lý các tương tác như validate form và tìm kiếm. Giao diện được thiết kế trực quan, dễ sử dụng, giúp quản lý thông tin phòng trọ hiệu quả.",
