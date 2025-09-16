@@ -331,7 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         animateValue(projectCount, 0, 7, 2000)
         // animateValue(experienceYears, 0, 5, 2000)
-        animateValue(skillCount, 0, 7, 2000)
+        animateValue(skillCount, 0, 10, 2000)
     }, 1000)
 
     // Initialize project animations
