@@ -16,29 +16,19 @@
             "alt": "JavaScript"
         },
         {
-            "name": "React",
-            "icon": "images/react.png",
-            "alt": "React"
-        },
-        {
             "name": "Bootstrap",
             "icon": "images/Bootstrap.png",
             "alt": "Bootstrap"
         },
         {
-            "name": "Sass",
-            "icon": "images/Sass.png",
-            "alt": "Sass"
+            "name": "Tailwind CSS",
+            "icon": "images/tailwind.svg",
+            "alt": "Tailwind CSS"
         },
         {
             "name": "Git",
             "icon": "images/Git.png",
             "alt": "Git"
-        },
-        {
-            "name": "Node.js",
-            "icon": "images/Node.js.png",
-            "alt": "Node.JS"
         },
         {
             "name": "Java",
