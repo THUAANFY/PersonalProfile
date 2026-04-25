@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -248,22 +248,17 @@
 
                 <!-- Navbar -->
                 <nav class="navbar navbar-expand-lg tech-navbar sticky-top">
-                    <!-- Particles background cho navbar -->
-                    <div class="navbar-particles"></div>
-
-                    <!-- Circuit overlay cho navbar -->
-                    <div class="navbar-circuit-overlay"></div>
-
-                    <!-- Glow effect -->
-                    <div class="navbar-glow-effect"></div>
-
-                    <div class="container-fluid">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarNav">
+                    <div class="container-fluid px-0">
+                        <a class="navbar-brand tech-brand" href="#gioi-thieu">
+                            <span class="brand-dot"></span>
+                            <span class="brand-text">Portfolio</span>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <i class="fas fa-bars"></i>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav me-auto">
+                            <ul class="navbar-nav mx-lg-auto">
                                 <li class="nav-item">
                                     <a class="nav-link active" href="#gioi-thieu">
                                         <span class="nav-icon"><i class="fas fa-user-alt"></i></span>
@@ -296,16 +291,19 @@
                                 </li>
                             </ul>
                             <div class="d-flex align-items-center">
-                                <div class="language-selector">
-                                    <select class="form-select form-select-sm tech-select">
-                                        <option value="vi">VI</option>
-                                        <option value="en">EN</option>
-                                    </select>
+                                <div class="language-selector" role="group" aria-label="Language switcher">
+                                    <button type="button" class="lang-option" data-lang="vi" aria-pressed="false">
+                                        <span class="lang-flag"><img src="images/VN.png" alt="Vietnam flag"></span>
+                                        <span class="lang-code">VI</span>
+                                    </button>
+                                    <button type="button" class="lang-option active" data-lang="en" aria-pressed="true">
+                                        <span class="lang-flag"><img src="images/EN.png" alt="English flag"></span>
+                                        <span class="lang-code">EN</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </nav>
+                    </nav>
 
                 <div class="nen"></div>
 
@@ -314,63 +312,63 @@
                     <section id="gioi-thieu" class="content-section active" data-aos="fade-up">
                         <h2 class="section-title">GIỚI THIỆU</h2>
                         <div class="section-content">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="intro-text">
-                                        <div class="intro-greeting">
-                                            <span class="greeting-highlight">Xin chào!</span> Tôi là <span
-                                                class="name-highlight">Lê Thuận Phi</span>
+                            <div class="intro-modern">
+                                <div class="intro-modern-copy" data-aos="fade-right" data-aos-delay="60">
+                                    <span class="intro-modern-pill">Frontend Developer</span>
+                                    <h3>Thiết kế giao diện hiện đại, tối ưu trải nghiệm người dùng.</h3>
+                                    <p class="intro-modern-lead">
+                                        Tôi là <strong>Lê Thuận Phi</strong>, tập trung xây dựng sản phẩm web trực quan,
+                                        mượt và nhất quán trên mọi thiết bị.
+                                    </p>
+                                    <div class="intro-modern-points">
+                                        <div class="intro-point">
+                                            <i class="fas fa-layer-group"></i>
+                                            <span>UI rõ ràng, tinh gọn, dễ dùng</span>
                                         </div>
-                                        <div class="intro-tagline">
-                                            <span class="typed-text">Frontend Developer</span> với đam mê sáng tạo giao
-                                            diện người dùng
+                                        <div class="intro-point">
+                                            <i class="fas fa-mobile-screen-button"></i>
+                                            <span>Responsive theo thực tế sử dụng</span>
                                         </div>
-                                        <div class="intro-description">
-                                            <p>Là một sinh viên mới tốt nghiệp với niềm đam mê mãnh liệt trong việc xây dựng giao diện web, em luôn hướng đến việc tạo ra những sản phẩm trực quan, thân thiện với người dùng. Với nền tảng vững chắc về 
-                                                <span class="tech-highlight">HTML5</span>, 
-                                                <span class="tech-highlight">CSS3</span>, 
-                                                <span class="tech-highlight">JavaScript</span> và kinh nghiệm thực tế từ các dự án cá nhân trong việc sử dụng 
-                                                <span class="tech-highlight">Bootstrap</span>, 
-                                                em tự tin có thể nhanh chóng đóng góp vào các dự án của công ty.</p>
-                                            <p>Em là người ham học hỏi, luôn chủ động cập nhật các xu hướng công nghệ mới và khao khát được học hỏi, trau dồi kinh nghiệm trong môi trường làm việc chuyên nghiệp. Với tinh thần trách nhiệm cao và sự tỉ mỉ, em mong muốn được góp sức vào đội ngũ phát triển để cùng tạo ra những trải nghiệm web tuyệt vời cho người dùng.</p>
-                                        </div>
-                                        <div class="intro-quote">
-                                            <i class="fas fa-quote-left quote-icon"></i>
-                                            <blockquote>Tôi tin rằng giao diện tốt không chỉ đẹp mắt mà còn phải mang
-                                                lại giá trị thực sự cho người dùng.</blockquote>
-                                        </div>
-                                        <div class="intro-buttons mt-4">
-                                            <a href="files/CV_Le_Thuan_Phi_Frontend.pdf" class="btn btn-primary me-3" download="CV_Le_Thuan_Phi_Frontend.pdf"><i
-                                                    class="fas fa-download me-2"></i>Tải CV</a>
-                                            <!-- <a href="#lien-he" class="btn btn-outline-primary"><i
-                                                    class="fas fa-paper-plane me-2"></i>Liên hệ</a> -->
+                                        <div class="intro-point">
+                                            <i class="fas fa-gauge-high"></i>
+                                            <span>Tối ưu hiệu năng và tính ổn định</span>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="intro-visual">
-                                        <div class="about-image">
-                                            <img src="images/IMG_2727111.jpg" alt="Lê Thuận Phi - Frontend Developer"
-                                                class="img-fluid rounded main-image">
-                                            <div class="tech-badges">
-                                                <span class="tech-badgee"><i class="fab fa-html5"></i> HTML5</span>
-                                                <span class="tech-badgee"><i class="fab fa-css3-alt"></i> CSS3</span>
-                                                <span class="tech-badgee"><i class="fab fa-js"></i> JavaScript</span>
-                                                <span class="tech-badgee"><i class="fab fa-bootstrap"></i> Bootstrap</span>
-                                            </div>
-                                            <div class="stats-cards">
-                                                <div class="stat-card projects">
-                                                    <div class="stat-icon"><i class="fas fa-code-branch"></i></div>
-                                                    <div class="stat-number">5+</div>
-                                                    <div class="stat-label">Dự án</div>
-                                                </div>
-                                                <!-- <div class="stat-card clients">
-                                                    <div class="stat-icon"><i class="fas fa-users"></i></div>
-                                                    <div class="stat-number">15+</div>
-                                                    <div class="stat-label">Khách hàng</div>
-                                                </div> -->
-                                            </div>
+                                    <div class="intro-modern-stats">
+                                        <div class="intro-modern-stat">
+                                            <span class="value">7+</span>
+                                            <span class="label">Dự án đã triển khai</span>
                                         </div>
+                                        <div class="intro-modern-stat">
+                                            <span class="value">4+</span>
+                                            <span class="label">Nhóm công nghệ chính</span>
+                                        </div>
+                                        <div class="intro-modern-stat">
+                                            <span class="value">100%</span>
+                                            <span class="label">Tập trung vào UX</span>
+                                        </div>
+                                    </div>
+                                    <div class="intro-modern-actions">
+                                        <a href="files/CV_Le_Thuan_Phi_Frontend.pdf" class="btn btn-primary" download="CV_Le_Thuan_Phi_Frontend.pdf">
+                                            <i class="fas fa-download me-2"></i>Tải CV
+                                        </a>
+                                        <a href="#lien-he" class="btn btn-outline-primary">
+                                            <i class="fas fa-paper-plane me-2"></i>Liên hệ
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="intro-modern-visual" data-aos="fade-left" data-aos-delay="120">
+                                    <div class="intro-photo-frame">
+                                        <img src="images/Le_Thuan_Phi.jpg" alt="Lê Thuận Phi - Frontend Developer" class="intro-modern-image">
+                                        <div class="intro-float-card intro-float-card-top">
+                                            <i class="fas fa-code"></i>
+                                            <span>HTML / CSS / JavaScript</span>
+                                        </div>
+                                        <div class="intro-float-card intro-float-card-bottom">
+                                            <i class="fas fa-briefcase"></i>
+                                            <span>7+ dự án thực chiến</span>
+                                        </div>
+                                        <div class="intro-glow-ring"></div>
                                     </div>
                                 </div>
                             </div>
@@ -381,9 +379,22 @@
                     <section id="ky-nang" class="content-section" data-aos="fade-up">
                         <h2 class="section-title">KỸ NĂNG</h2>
                         <div class="section-content">
-                            <!-- replaced hard-coded skills with empty container for dynamic content -->
-                            <div class="skills-container" id="skills-container">
-                                <!-- Skills will be dynamically loaded from JSON -->
+                            <div class="skills-showcase">
+                                <div class="skills-showcase-head" data-aos="fade-up" data-aos-delay="40">
+                                    <div class="skills-title-wrap">
+                                        <span class="skills-kicker">Core Stack</span>
+                                        <h3>Modern, clean, and production-ready</h3>
+                                    </div>
+                                    <p class="skills-summary">Focused on frontend quality, scalable backend integration, and delivery tooling.</p>
+                                </div>
+                                <div class="skills-legend" data-aos="fade-up" data-aos-delay="80">
+                                    <span class="legend-item"><span class="legend-dot legend-dot-frontend"></span>Frontend</span>
+                                    <span class="legend-item"><span class="legend-dot legend-dot-backend"></span>Backend</span>
+                                    <span class="legend-item"><span class="legend-dot legend-dot-tools"></span>Tooling</span>
+                                </div>
+                                <div class="skills-container" id="skills-container">
+                                    <!-- Skills will be dynamically loaded from JSON -->
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -393,9 +404,30 @@
                     <section id="kinh-nghiem" class="content-section" data-aos="fade-up">
                         <h2 class="section-title">KINH NGHIỆM</h2>
                         <div class="section-content">
-                            <!-- Replaced hard-coded timeline with empty container for dynamic content -->
-                            <div class="timeline" id="experience-timeline">
-                                <!-- Timeline items will be dynamically loaded from JSON -->
+                            <div class="experience-shell">
+                                <div class="experience-headline" data-aos="fade-up" data-aos-delay="50">
+                                    <div class="experience-title-wrap">
+                                        <span class="experience-kicker">Career Snapshot</span>
+                                        <h3>Hành trình phát triển</h3>
+                                    </div>
+                                    <div class="experience-metrics">
+                                        <div class="experience-metric">
+                                            <span class="metric-value" id="exp-total">0</span>
+                                            <span class="metric-label">Mốc kinh nghiệm</span>
+                                        </div>
+                                        <div class="experience-metric">
+                                            <span class="metric-value" id="exp-project">0</span>
+                                            <span class="metric-label">Dự án</span>
+                                        </div>
+                                        <div class="experience-metric">
+                                            <span class="metric-value" id="exp-work">0</span>
+                                            <span class="metric-label">Làm việc</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="experience-grid" id="experience-timeline">
+                                    <!-- Experience cards will be dynamically loaded from JSON -->
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -405,9 +437,30 @@
                     <section id="du-an" class="content-section" data-aos="fade-up">
                         <h2 class="section-title">DỰ ÁN</h2>
                         <div class="section-content">
-                            <!-- Replaced hard-coded projects with empty container for dynamic content -->
-                            <div class="row" id="projects-container">
-                                <!-- Projects will be dynamically loaded from JSON -->
+                            <div class="project-showcase-shell">
+                                <div class="project-showcase-head" data-aos="fade-up" data-aos-delay="60">
+                                    <div class="project-showcase-title">
+                                        <span class="project-showcase-kicker">Selected Works</span>
+                                        <h3>Dự án nổi bật</h3>
+                                    </div>
+                                    <div class="project-showcase-metrics">
+                                        <div class="project-showcase-metric">
+                                            <span class="metric-value" id="project-total">0</span>
+                                            <span class="metric-label">Tổng dự án</span>
+                                        </div>
+                                        <div class="project-showcase-metric">
+                                            <span class="metric-value" id="project-live">0</span>
+                                            <span class="metric-label">Có demo</span>
+                                        </div>
+                                        <div class="project-showcase-metric">
+                                            <span class="metric-value" id="project-stack">0</span>
+                                            <span class="metric-label">Công nghệ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-showcase-grid" id="projects-container">
+                                    <!-- Projects will be dynamically loaded from JSON -->
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -576,3 +629,5 @@
 </body>
 
 </html>
+
+

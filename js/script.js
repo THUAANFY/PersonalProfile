@@ -151,11 +151,307 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     // Language selector
+    const DEFAULT_LANGUAGE = "en"
+    let currentLanguage = DEFAULT_LANGUAGE
     const languageSelector = document.querySelector(".language-selector select")
+    const languageButtons = document.querySelectorAll(".language-selector .lang-option")
+    const jobTitle = document.querySelector(".typing-text")
+    let typingTimer = null
 
-    languageSelector.addEventListener("change", function () {
-        // Here you would implement language switching logic
-        console.log("Language changed to:", this.value)
+    const translations = {
+        en: {
+            pageTitle: "Le Thuan Phi - Frontend Developer",
+            nav: ["About", "Skills", "Experience", "Projects", "Contact"],
+            sidebar: {
+                jobTitle: "Frontend Developer",
+                status: "Available for new projects",
+                downloadCv: "Download CV",
+                contact: "Contact",
+                contactInfo: "Contact Info",
+                phone: "Phone",
+                address: "Address",
+                dob: "Date of Birth",
+                coreSkills: "Core Skills",
+                projects: "Projects",
+                skills: "Skills",
+            },
+            sections: {
+                about: "ABOUT",
+                skills: "SKILLS",
+                experience: "EXPERIENCE",
+                projects: "PROJECTS",
+                contact: "CONTACT",
+            },
+            intro: {
+                heading: "Designing modern interfaces with optimized user experience.",
+                lead:
+                    "I am <strong>Le Thuan Phi</strong>, focused on building intuitive, smooth, and consistent web products across devices.",
+                points: [
+                    "Clear, minimal, easy-to-use UI",
+                    "Responsive with real-world usage in mind",
+                    "Performance and stability focused",
+                ],
+                stats: ["Projects Delivered", "Core Tech Areas", "UX Focused"],
+                ctaContact: "Contact",
+                floatBottom: "7+ real-world projects",
+            },
+            skillShowcase: {
+                kicker: "Core Stack",
+                summary:
+                    "Focused on frontend quality, scalable backend integration, and delivery tooling.",
+                legend: ["Frontend", "Backend", "Tooling"],
+            },
+            experience: {
+                kicker: "Career Snapshot",
+                heading: "Career Journey",
+                metrics: ["Milestones", "Projects", "Work Roles"],
+            },
+            projects: {
+                kicker: "Selected Works",
+                heading: "Featured Projects",
+                metrics: ["Total Projects", "Live Demos", "Technologies"],
+                viewCode: "View code",
+                viewDemo: "View demo",
+            },
+            contact: {
+                heroTitle: "Let's build something meaningful!",
+                heroDesc:
+                    "I am always ready to hear your ideas and turn them into real products.",
+                quickContact: "Quick Contact",
+                messageTitle: "Send a Message",
+                formLabels: ["Full Name", "Email", "Message"],
+                submit: "Send Message",
+                socialTitle: "Connect With Me",
+                socialDesc: "Follow me on social platforms",
+                success: "Your message has been sent!",
+            },
+        },
+        vi: {
+            pageTitle: "Lê Thuận Phi - Lập Trình Viên Frontend",
+            nav: ["Giới thiệu", "Kỹ năng", "Kinh nghiệm", "Dự án", "Liên hệ"],
+            sidebar: {
+                jobTitle: "Lập Trình Viên Frontend",
+                status: "Sẵn sàng nhận dự án mới",
+                downloadCv: "Tải CV",
+                contact: "Liên hệ",
+                contactInfo: "Thông tin liên hệ",
+                phone: "Điện thoại",
+                address: "Địa chỉ",
+                dob: "Ngày sinh",
+                coreSkills: "Kỹ năng chính",
+                projects: "Dự án",
+                skills: "Kỹ năng",
+            },
+            sections: {
+                about: "GIỚI THIỆU",
+                skills: "KỸ NĂNG",
+                experience: "KINH NGHIỆM",
+                projects: "DỰ ÁN",
+                contact: "LIÊN HỆ",
+            },
+            intro: {
+                heading: "Thiết kế giao diện hiện đại, tối ưu trải nghiệm người dùng.",
+                lead:
+                    "Tôi là <strong>Lê Thuận Phi</strong>, tập trung xây dựng sản phẩm web trực quan, mượt và nhất quán trên mọi thiết bị.",
+                points: [
+                    "UI rõ ràng, tinh gọn, dễ dùng",
+                    "Responsive theo thực tế sử dụng",
+                    "Tối ưu hiệu năng và tính ổn định",
+                ],
+                stats: ["Dự án đã triển khai", "Nhóm công nghệ chính", "Tập trung vào UX"],
+                ctaContact: "Liên hệ",
+                floatBottom: "7+ dự án thực chiến",
+            },
+            skillShowcase: {
+                kicker: "Nền tảng cốt lõi",
+                summary:
+                    "Tập trung vào chất lượng frontend, tích hợp backend linh hoạt và quy trình triển khai hiệu quả.",
+                legend: ["Frontend", "Backend", "Công cụ"],
+            },
+            experience: {
+                kicker: "Tổng quan sự nghiệp",
+                heading: "Hành trình phát triển",
+                metrics: ["Mốc kinh nghiệm", "Dự án", "Làm việc"],
+            },
+            projects: {
+                kicker: "Dự án chọn lọc",
+                heading: "Dự án nổi bật",
+                metrics: ["Tổng dự án", "Có demo", "Công nghệ"],
+                viewCode: "Xem mã nguồn",
+                viewDemo: "Xem demo",
+            },
+            contact: {
+                heroTitle: "Hãy cùng tạo nên điều tuyệt vời!",
+                heroDesc:
+                    "Tôi luôn sẵn sàng lắng nghe ý tưởng của bạn và biến chúng thành hiện thực.",
+                quickContact: "Liên hệ nhanh",
+                messageTitle: "Gửi tin nhắn",
+                formLabels: ["Họ và tên", "Email", "Nội dung tin nhắn"],
+                submit: "Gửi tin nhắn",
+                socialTitle: "Kết nối với tôi",
+                socialDesc: "Theo dõi tôi trên các nền tảng mạng xã hội",
+                success: "Tin nhắn của bạn đã được gửi!",
+            },
+        },
+    }
+
+    function setText(selector, value) {
+        const element = document.querySelector(selector)
+        if (element && typeof value === "string") {
+            element.textContent = value
+        }
+    }
+
+    function setHTML(selector, value) {
+        const element = document.querySelector(selector)
+        if (element && typeof value === "string") {
+            element.innerHTML = value
+        }
+    }
+
+    function typeJobTitle(text) {
+        if (!jobTitle) return
+        if (typingTimer) clearTimeout(typingTimer)
+
+        jobTitle.textContent = ""
+        let index = 0
+        const speed = 55
+
+        const typeNext = () => {
+            if (index < text.length) {
+                jobTitle.textContent += text.charAt(index)
+                index++
+                typingTimer = setTimeout(typeNext, speed)
+            }
+        }
+
+        typingTimer = setTimeout(typeNext, 120)
+    }
+
+    function applyLanguage(lang) {
+        const targetLang = lang === "vi" ? "vi" : "en"
+        currentLanguage = targetLang
+        const t = translations[targetLang]
+
+        document.documentElement.lang = targetLang
+        document.title = t.pageTitle
+
+        if (languageSelector) {
+            languageSelector.value = targetLang
+        }
+
+        languageButtons.forEach((button) => {
+            const isActive = button.dataset.lang === targetLang
+            button.classList.toggle("active", isActive)
+            button.setAttribute("aria-pressed", isActive ? "true" : "false")
+        })
+
+        setText('.nav-link[href="#gioi-thieu"] .nav-text', t.nav[0])
+        setText('.nav-link[href="#ky-nang"] .nav-text', t.nav[1])
+        setText('.nav-link[href="#kinh-nghiem"] .nav-text', t.nav[2])
+        setText('.nav-link[href="#du-an"] .nav-text', t.nav[3])
+        setText('.nav-link[href="#lien-he"] .nav-text', t.nav[4])
+
+        typeJobTitle(t.sidebar.jobTitle)
+        setText(".status-text", t.sidebar.status)
+        setText(".action-buttons .tech-btn.primary span", t.sidebar.downloadCv)
+        setText(".action-buttons .tech-btn.secondary .nav-text", t.sidebar.contact)
+        setText(".contact-section .section-header h5", t.sidebar.contactInfo)
+        setText(".info-item:nth-child(2) .info-label", t.sidebar.phone)
+        setText(".info-item:nth-child(3) .info-label", t.sidebar.address)
+        setText(".info-item:nth-child(4) .info-label", t.sidebar.dob)
+        setText(".skills-section .section-header h5", t.sidebar.coreSkills)
+
+        const statLabels = document.querySelectorAll(".tech-stats .stat-label")
+        if (statLabels[0]) statLabels[0].textContent = t.sidebar.projects
+        if (statLabels[1]) statLabels[1].textContent = t.sidebar.skills
+
+        setText("#gioi-thieu .section-title", t.sections.about)
+        setText("#ky-nang .section-title", t.sections.skills)
+        setText("#kinh-nghiem .section-title", t.sections.experience)
+        setText("#du-an .section-title", t.sections.projects)
+        setText("#lien-he .section-title", t.sections.contact)
+
+        setText("#gioi-thieu .intro-modern h3", t.intro.heading)
+        setHTML("#gioi-thieu .intro-modern-lead", t.intro.lead)
+
+        const introPoints = document.querySelectorAll("#gioi-thieu .intro-point span")
+        introPoints.forEach((point, idx) => {
+            if (t.intro.points[idx]) point.textContent = t.intro.points[idx]
+        })
+
+        const introStats = document.querySelectorAll("#gioi-thieu .intro-modern-stat .label")
+        introStats.forEach((stat, idx) => {
+            if (t.intro.stats[idx]) stat.textContent = t.intro.stats[idx]
+        })
+
+        setHTML(
+            "#gioi-thieu .intro-modern-actions .btn-primary",
+            `<i class="fas fa-download me-2"></i>${t.sidebar.downloadCv}`,
+        )
+        setHTML(
+            "#gioi-thieu .intro-modern-actions .btn-outline-primary",
+            `<i class="fas fa-paper-plane me-2"></i>${t.intro.ctaContact}`,
+        )
+        setText("#gioi-thieu .intro-float-card-bottom span", t.intro.floatBottom)
+
+        setText("#ky-nang .skills-summary", t.skillShowcase.summary)
+        setText("#ky-nang .skills-kicker", t.skillShowcase.kicker)
+        const legendItems = document.querySelectorAll("#ky-nang .legend-item")
+        legendItems.forEach((item, idx) => {
+            const dot = item.querySelector(".legend-dot")
+            if (dot && t.skillShowcase.legend[idx]) {
+                item.textContent = ""
+                item.appendChild(dot)
+                item.appendChild(document.createTextNode(t.skillShowcase.legend[idx]))
+            }
+        })
+
+        setText("#kinh-nghiem .experience-title-wrap h3", t.experience.heading)
+        setText("#kinh-nghiem .experience-kicker", t.experience.kicker)
+        const experienceMetrics = document.querySelectorAll("#kinh-nghiem .metric-label")
+        experienceMetrics.forEach((metric, idx) => {
+            if (t.experience.metrics[idx]) metric.textContent = t.experience.metrics[idx]
+        })
+
+        setText("#du-an .project-showcase-title h3", t.projects.heading)
+        setText("#du-an .project-showcase-kicker", t.projects.kicker)
+        const projectMetrics = document.querySelectorAll("#du-an .metric-label")
+        projectMetrics.forEach((metric, idx) => {
+            if (t.projects.metrics[idx]) metric.textContent = t.projects.metrics[idx]
+        })
+
+        setText("#lien-he .contact-hero h3", t.contact.heroTitle)
+        setText("#lien-he .contact-hero p", t.contact.heroDesc)
+        setText("#lien-he .quick-contact .card-header h4", t.contact.quickContact)
+        setText("#lien-he .contact-method.phone .method-label", t.sidebar.phone)
+        setText("#lien-he .contact-method.location .method-label", t.sidebar.address)
+        setText("#lien-he .message-form .card-header h4", t.contact.messageTitle)
+
+        const formLabels = document.querySelectorAll("#lien-he .message-form .form-label")
+        formLabels.forEach((label, idx) => {
+            if (t.contact.formLabels[idx]) label.textContent = t.contact.formLabels[idx]
+        })
+
+        setText("#lien-he .message-form .btn-text", t.contact.submit)
+        setText("#lien-he .social-connect h4", t.contact.socialTitle)
+        setText("#lien-he .social-connect p", t.contact.socialDesc)
+
+        loadSkillsFromJSON()
+        loadProjectsFromJSON()
+    }
+
+    if (languageSelector) {
+        languageSelector.value = DEFAULT_LANGUAGE
+        languageSelector.addEventListener("change", function () {
+            applyLanguage(this.value)
+        })
+    }
+
+    languageButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            applyLanguage(button.dataset.lang)
+        })
     })
 
     // Animate skills progress bars in sidebar
@@ -197,7 +493,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Enhanced project cards animations
     function initProjectAnimations() {
-        const projectCards = document.querySelectorAll(".project-card")
+        const projectCards = document.querySelectorAll(".showcase-card")
 
         // Animate projects when they come into view
         const observer = new IntersectionObserver(
@@ -223,7 +519,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Add stagger animation for tech tags
         projectCards.forEach((card) => {
-            const techTags = card.querySelectorAll(".project-tech span")
+            const techTags = card.querySelectorAll(".showcase-tech span")
             card.addEventListener("mouseenter", () => {
                 techTags.forEach((tag, index) => {
                     setTimeout(() => {
@@ -241,13 +537,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Contact form submission
-    const contactForm = document.querySelector(".contact-form")
+    const contactForm = document.querySelector(".modern-contact-form")
     if (contactForm) {
         contactForm.addEventListener("submit", function (e) {
             e.preventDefault()
 
             // Here you would implement form submission logic
-            alert("Tin nhắn của bạn đã được gửi!")
+            const successMessage =
+                translations[currentLanguage]?.contact?.success || "Your message has been sent!"
+            alert(successMessage)
             this.reset()
         })
     }
@@ -293,22 +591,6 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     })
 
-    // Typing effect for job title
-    const jobTitle = document.querySelector(".typing-text")
-    const text = jobTitle.textContent
-    jobTitle.textContent = ""
-    let i = 0
-
-    function typeWriter() {
-        if (i < text.length) {
-            jobTitle.textContent += text.charAt(i)
-            i++
-            setTimeout(typeWriter, 100)
-        }
-    }
-
-    setTimeout(typeWriter, 1000)
-
     // Animate tech stats with counting
     function animateValue(obj, start, end, duration) {
         let startTimestamp = null
@@ -347,28 +629,58 @@ document.addEventListener("DOMContentLoaded", () => {
             const data = await response.json()
 
             const timelineContainer = document.getElementById("experience-timeline")
+            const totalExperience = document.getElementById("exp-total")
+            const projectExperience = document.getElementById("exp-project")
+            const workExperience = document.getElementById("exp-work")
+
+            if (!timelineContainer) return
+            timelineContainer.innerHTML = ""
+
+            let projectCount = 0
+            let workCount = 0
 
             data.timeline.forEach((item, index) => {
                 const timelineItem = document.createElement("div")
-                timelineItem.className = "timeline-item"
-                timelineItem.setAttribute("data-aos", "fade-right")
+                timelineItem.className = "experience-card"
+                timelineItem.setAttribute("data-aos", "fade-up")
+                timelineItem.setAttribute("data-aos-duration", "550")
                 if (index > 0) {
-                    timelineItem.setAttribute("data-aos-delay", (index * 100).toString())
+                    timelineItem.setAttribute("data-aos-delay", ((index % 6) * 70).toString())
                 }
 
-                // Create tags HTML
-                const tagsHtml = item.tags.map((tag) => `<span>${tag}</span>`).join("")
+                const subtitle = item.subtitle || ""
+                const subtitleNormal = subtitle
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "")
+                    .toLowerCase()
+
+                if (
+                    subtitleNormal.includes("du an") ||
+                    subtitleNormal.includes("assignment")
+                ) {
+                    projectCount++
+                }
+
+                if (
+                    subtitleNormal.includes("nhan vien") ||
+                    subtitleNormal.includes("thuc tap")
+                ) {
+                    workCount++
+                }
+
+                const tagsHtml = (item.tags || [])
+                    .map((tag) => `<span class="exp-tag">${tag}</span>`)
+                    .join("")
 
                 timelineItem.innerHTML = `
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">
-                        <span>${item.date}</span>
+                    <div class="exp-card-head">
+                        <span class="exp-date">${item.date}</span>
+                        <span class="exp-type">${item.subtitle}</span>
                     </div>
-                    <div class="timeline-content">
+                    <div class="exp-card-body">
                         <h4>${item.title}</h4>
-                        <h5>${item.subtitle}</h5>
                         <p>${item.description}</p>
-                        <div class="timeline-tags">
+                        <div class="exp-tags">
                             ${tagsHtml}
                         </div>
                     </div>
@@ -376,6 +688,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 timelineContainer.appendChild(timelineItem)
             })
+
+            if (totalExperience) totalExperience.textContent = data.timeline.length.toString()
+            if (projectExperience) projectExperience.textContent = projectCount.toString()
+            if (workExperience) workExperience.textContent = workCount.toString()
 
             // Re-initialize AOS for new elements
             if (AOS) {
@@ -392,11 +708,87 @@ document.addEventListener("DOMContentLoaded", () => {
             const data = await response.json()
 
             const skillsContainer = document.getElementById("skills-container")
+            if (!skillsContainer) return
+            skillsContainer.innerHTML = ""
+
+            const locale = currentLanguage === "vi" ? "vi" : "en"
+            const groupLabelMap = {
+                frontend: { en: "Frontend", vi: "Frontend" },
+                backend: { en: "Backend", vi: "Backend" },
+                tooling: { en: "Tooling", vi: "Công cụ" },
+            }
+
+            const skillMetaMap = {
+                HTML5: {
+                    group: "frontend",
+                    accent: "#ff7a45",
+                    detail: { en: "Semantic and accessible markup", vi: "Đánh dấu ngữ nghĩa và khả năng truy cập tốt" },
+                },
+                CSS3: {
+                    group: "frontend",
+                    accent: "#4f9cff",
+                    detail: { en: "Responsive layouts and modern styling", vi: "Bố cục responsive và phong cách hiện đại" },
+                },
+                JavaScript: {
+                    group: "frontend",
+                    accent: "#f7d046",
+                    detail: { en: "Interactive UI and component logic", vi: "Tương tác UI và xử lý logic thành phần" },
+                },
+                Bootstrap: {
+                    group: "frontend",
+                    accent: "#8c7bff",
+                    detail: { en: "Fast interface delivery", vi: "Triển khai giao diện nhanh và ổn định" },
+                },
+                "Tailwind CSS": {
+                    group: "frontend",
+                    accent: "#22d3ee",
+                    detail: { en: "Utility-first design system", vi: "Thiết kế theo hướng utility-first" },
+                },
+                WordPress: {
+                    group: "backend",
+                    accent: "#4b8bbd",
+                    detail: { en: "Content-focused website delivery", vi: "Xây dựng website tập trung nội dung" },
+                },
+                Git: {
+                    group: "tooling",
+                    accent: "#ff835c",
+                    detail: { en: "Versioning and team workflow", vi: "Quản lý phiên bản và phối hợp nhóm" },
+                },
+                Java: {
+                    group: "backend",
+                    accent: "#ffb347",
+                    detail: { en: "Scalable server-side foundation", vi: "Nền tảng backend có khả năng mở rộng" },
+                },
+                "Spring Boot": {
+                    group: "backend",
+                    accent: "#77cf58",
+                    detail: { en: "REST APIs and business logic", vi: "Xây dựng REST API và xử lý nghiệp vụ" },
+                },
+                Thymeleaf: {
+                    group: "backend",
+                    accent: "#47b968",
+                    detail: { en: "Template-based web rendering", vi: "Render giao diện theo mô hình template" },
+                },
+            }
 
             data.skills.forEach((skill, index) => {
+                const skillMeta = skillMetaMap[skill.name] || {
+                    group: "tooling",
+                    accent: "#38bdf8",
+                    detail: {
+                        en: "Continuous skill expansion",
+                        vi: "Liên tục mở rộng kỹ năng chuyên môn",
+                    },
+                }
+
+                const groupLabel = groupLabelMap[skillMeta.group]?.[locale] || groupLabelMap.tooling[locale]
+                const detail = skillMeta.detail?.[locale] || skillMeta.detail?.en || ""
+
                 const skillCard = document.createElement("div")
                 skillCard.className = "skill-card"
                 skillCard.setAttribute("data-skill", skill.name)
+                skillCard.setAttribute("data-group", skillMeta.group)
+                skillCard.style.setProperty("--skill-accent", skillMeta.accent)
                 skillCard.setAttribute("data-aos", "zoom-in")
                 skillCard.setAttribute("data-aos-duration", "500")
                 if (index > 0) {
@@ -404,11 +796,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
                 skillCard.innerHTML = `
-                    <div class="skill-icon">
-                        <img src="${skill.icon}" alt="${skill.alt}"
-                            style="width: 60px; height: 60px; object-fit: contain;">
+                    <div class="skill-card-top">
+                        <div class="skill-icon">
+                            <img src="${skill.icon}" alt="${skill.alt}">
+                        </div>
+                        <span class="skill-group">${groupLabel}</span>
                     </div>
-                    <h4>${skill.name}</h4>
+                    <div class="skill-card-body">
+                        <h4>${skill.name}</h4>
+                        <p>${detail}</p>
+                    </div>
                 `
 
                 skillsContainer.appendChild(skillCard)
@@ -429,39 +826,67 @@ document.addEventListener("DOMContentLoaded", () => {
             const data = await response.json()
 
             const projectsContainer = document.getElementById("projects-container")
+            const totalProjects = document.getElementById("project-total")
+            const liveProjects = document.getElementById("project-live")
+            const stackCount = document.getElementById("project-stack")
+
+            if (!projectsContainer) return
+            projectsContainer.innerHTML = ""
+
+            let liveDemoCount = 0
+            const uniqueTechnologies = new Set()
+
+            const projectLabels = translations[currentLanguage]?.projects || translations.en.projects
 
             data.projects.forEach((project, index) => {
                 const projectCard = document.createElement("div")
-                projectCard.className = "col-md-6 mb-4"
-                projectCard.setAttribute("data-aos", project.aos.effect)
-                if (project.aos.delay > 0) {
-                    projectCard.setAttribute("data-aos-delay", project.aos.delay.toString())
+                projectCard.className = "showcase-card"
+                projectCard.setAttribute("data-aos", "fade-up")
+                projectCard.setAttribute("data-aos-duration", "550")
+                if (index > 0) {
+                    projectCard.setAttribute("data-aos-delay", ((index % 6) * 70).toString())
                 }
 
-                // Create technologies HTML
-                const technologiesHtml = project.technologies.map((tech) => `<span>${tech}</span>`).join("")
+                const technologiesHtml = (project.technologies || [])
+                    .map((tech) => `<span>${tech}</span>`)
+                    .join("")
+
+                const hasLiveDemo = project.links?.demo && project.links.demo !== "#"
+                if (hasLiveDemo) liveDemoCount++
+
+                ;(project.technologies || []).forEach((tech) => uniqueTechnologies.add(tech))
 
                 projectCard.innerHTML = `
-                    <div class="project-card">
-                        <div class="project-img">
+                    <div class="showcase-media">
+                        <a href="${hasLiveDemo ? project.links.demo : project.links.github}" target="_blank" rel="noopener noreferrer">
                             <img src="${project.image}" alt="${project.alt}">
-                        </div>
-                        <div class="project-info">
+                        </a>
+                    </div>
+                    <div class="showcase-body">
+                        <div class="showcase-header">
                             <h4>${project.title}</h4>
-                            <p>${project.description}</p>
-                            <div class="project-tech">
-                                ${technologiesHtml}
+                            <div class="showcase-links">
+                                <a href="${project.links.github}" class="showcase-link-btn" title="${projectLabels.viewCode}" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="${project.links.demo}" class="showcase-link-btn ${hasLiveDemo ? "" : "is-disabled"}" title="${projectLabels.viewDemo}" ${hasLiveDemo ? 'target="_blank" rel="noopener noreferrer"' : 'aria-disabled="true" tabindex="-1"'}>
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
                             </div>
-                            <div class="project-links">
-                                <a href="${project.links.demo}" class="project-link" title="Xem demo"><i class="fas fa-external-link-alt"></i></a>
-                                <a href="${project.links.github}" class="project-github" title="View Code"><i class="fab fa-github"></i></a>
-                            </div>
+                        </div>
+                        <p>${project.description}</p>
+                        <div class="showcase-tech">
+                            ${technologiesHtml}
                         </div>
                     </div>
                 `
 
                 projectsContainer.appendChild(projectCard)
             })
+
+            if (totalProjects) totalProjects.textContent = data.projects.length.toString()
+            if (liveProjects) liveProjects.textContent = liveDemoCount.toString()
+            if (stackCount) stackCount.textContent = uniqueTechnologies.size.toString()
 
             // Re-initialize AOS for new elements
             if (AOS) {
@@ -476,7 +901,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     loadExperienceTimeline()
-    loadSkillsFromJSON()
-
-    loadProjectsFromJSON()
+    applyLanguage(DEFAULT_LANGUAGE)
 })

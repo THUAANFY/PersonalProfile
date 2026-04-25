@@ -12,6 +12,31 @@
             ]
         },
         {
+            "date": "04 - 2026",
+            "title": "WEBSITE XEM PHIM ONLINE TF-Phim",
+            "subtitle": "Dự Án Cá Nhân",
+            "description": "Xây dựng hệ thống web xem phim trực tuyến theo mô hình client–server, tích hợp API bên thứ ba để fetch dữ liệu phim (metadata, video). Tech stack sử dụng: HTML, CSS, JavaScript, Bootstrap cho frontend; Java Spring Boot cho backend (RESTful API, xử lý logic, quản lý dữ liệu). Tập trung tối ưu UI/UX: responsive đa thiết bị, cải thiện performance load trang và trải nghiệm người dùng khi xem phim.",
+            "tags": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "Bootstrap",
+                "Java"
+            ]
+        },
+        {
+            "date": "03 - 2026",
+            "title": "Ví Quản Lí Chi Tiêu Cá Nhân TF-Wallet",
+            "subtitle": "Dự Án Cá Nhân",
+            "description": "Xây dựng ứng dụng web TF-Wallet (Personal Finance Management) phục vụ quản lý chi tiêu cá nhân. Tech stack: HTML, CSS, JavaScript, Bootstrap cho frontend; tích hợp các thư viện visualization (chart) để thống kê và hiển thị dữ liệu tài chính theo dạng biểu đồ (income/expense theo thời gian). Chức năng chính: CRUD giao dịch, phân loại danh mục chi tiêu, tổng hợp & phân tích dữ liệu. Tối ưu UI/UX: responsive đa nền tảng, trực quan hóa dữ liệu giúp người dùng dễ dàng theo dõi và kiểm soát tài chính.",
+            "tags": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "Bootstrap"
+            ]
+        },
+        {
             "date": "06 - 2025",
             "title": "THỰC TẬP TẠI DANATECH AGNECY",
             "subtitle": "Thực Tập",

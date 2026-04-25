@@ -1,6 +1,47 @@
 {
     "projects": [
         {
+            "title": "Webapp Xem Phim: TF-Phim",
+            "image": "images/TF-Phim.jpg",
+            "alt": "Webapp Xem Phim: TF-Phim",
+            "description": "Xây dựng hệ thống web xem phim trực tuyến theo mô hình client–server, tích hợp API bên thứ ba để fetch dữ liệu phim (metadata, video), sử dụng HTML, CSS, JavaScript, Bootstrap cho frontend và Java Spring Boot cho backend (RESTful API, xử lý logic, quản lý dữ liệu), đồng thời tối ưu UI/UX với giao diện responsive và cải thiện hiệu năng load trang nhằm nâng cao trải nghiệm người dùng.",
+            "links": {
+                "demo": "https://tf-phim.onrender.com/",
+                "github": "https://github.com/THUAANFY/TF-Phim"
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "Bootstrap",
+                "Java"
+            ],
+            "aos": {
+                "effect": "zoom-in",
+                "delay": 0
+            }
+        },
+        {
+            "title": "Ví Quản Lí Chi Tiêu Cá Nhân TF-Wallet",
+            "image": "images/TF-Wallet.jpg",
+            "alt": "Ví Quản Lí Chi Tiêu Cá Nhân TF-Wallet",
+            "description": "Phát triển ứng dụng web TF-Wallet phục vụ quản lý chi tiêu cá nhân, sử dụng HTML, CSS, JavaScript, Bootstrap và các thư viện chart để trực quan hóa dữ liệu. Hệ thống hỗ trợ CRUD giao dịch, thống kê và phân tích thu/chi, đồng thời tối ưu UI/UX với giao diện responsive, dễ sử dụng.",
+            "links": {
+                "demo": "https://thuaanfy.github.io/TF-Wallet-PRO/",
+                "github": "https://github.com/THUAANFY/TF-Wallet-PRO"
+            },
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "Bootstrap"
+            ],
+            "aos": {
+                "effect": "zoom-in",
+                "delay": 0
+            }
+        },
+        {
             "title": "Hệ Thống Quản Lý Phòng Trọ",
             "image": "images/qlphongtro.jpg",
             "alt": "Hệ Thống Quản Lý Phòng Trọ",
