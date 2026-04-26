@@ -346,11 +346,11 @@ document.addEventListener("DOMContentLoaded", () => {
             button.setAttribute("aria-pressed", isActive ? "true" : "false")
         })
 
-        setText('.nav-link[href="#gioi-thieu"] .nav-text', t.nav[0])
-        setText('.nav-link[href="#ky-nang"] .nav-text', t.nav[1])
-        setText('.nav-link[href="#kinh-nghiem"] .nav-text', t.nav[2])
-        setText('.nav-link[href="#du-an"] .nav-text', t.nav[3])
-        setText('.nav-link[href="#lien-he"] .nav-text', t.nav[4])
+        setText('.tech-navbar .nav-link[href="#gioi-thieu"] .nav-text', t.nav[0])
+        setText('.tech-navbar .nav-link[href="#ky-nang"] .nav-text', t.nav[1])
+        setText('.tech-navbar .nav-link[href="#kinh-nghiem"] .nav-text', t.nav[2])
+        setText('.tech-navbar .nav-link[href="#du-an"] .nav-text', t.nav[3])
+        setText('.tech-navbar .nav-link[href="#lien-he"] .nav-text', t.nav[4])
 
         typeJobTitle(t.sidebar.jobTitle)
         setText(".status-text", t.sidebar.status)
