@@ -108,7 +108,7 @@
             "title": "Portfolio Cá Nhân",
             "image": "images/profile.jpg",
             "alt": "Portfolio Cá Nhân",
-            "description": "Sử dụng các công nghệ (Java, HTML, CSS, Bootstrap, SQLServer). Phát triển nền tảng website xem phim trực tuyến với các tính năng (đăng nhập/đăng ký, phát video, like, upload.) Tối ưu hóa lại giao diện tăng trải nghiệm cho người dùng.",
+            "description": "Phát triển website Portfolio Cá Nhân bằng HTML, CSS, JavaScript và Bootstrap với giao diện hiện đại, responsive, hiển thị thông tin cá nhân, kỹ năng, dự án và tối ưu trải nghiệm người dùng. Sử dụng hiệu ứng AOS để tạo hiệu ứng cuộn mượt mà, tăng tính tương tác và thu hút người xem khi khám phá thông tin trên trang.",
             "links": {
                 "demo": "https://thuaanfy.github.io/PersonalProfile/",
                 "github": "https://github.com/THUAANFY/PersonalProfile"
@@ -126,14 +126,15 @@
         },
         {
             "title": "Spotify Clone",
-            "image": "images/Spotify.jpg",
+            "image": "images/Spotify-Clone.jpg",
             "alt": "Spotify Clone",
-            "description": "Sử dụng các công nghệ (Java, HTML, CSS, Bootstrap, SQLServer). Phát triển nền tảng website xem phim trực tuyến với các tính năng (đăng nhập/đăng ký, phát video, like, upload.) Tối ưu hóa lại giao diện tăng trải nghiệm cho người dùng.",
+            "description": "Sử dụng các công nghệ React, HTML, CSS, JavaScript và TailwindCSS để phát triển website Spotify Clone với các tính năng phát nhạc, quản lý playlist, tìm kiếm bài hát và giao diện responsive. Tối ưu hóa trải nghiệm người dùng với thiết kế hiện đại và hiệu ứng tương tác mượt mà.",
             "links": {
-                "demo": "https://thuaanfy.github.io/Spotify/",
-                "github": "https://github.com/THUAANFY/Spotify"
+                "demo": "https://tf-spotify-clone.vercel.app/",
+                "github": "https://github.com/THUAANFY/Spotify-Clone"
             },
             "technologies": [
+                "React",
                 "HTML",
                 "CSS",
                 "JavaScript",
@@ -148,7 +149,7 @@
             "title": "To Do List App",
             "image": "images/task.jpg",
             "alt": "To Do List App",
-            "description": "Sử dụng các công nghệ (Java, HTML, CSS, Bootstrap, SQLServer). Phát triển nền tảng website xem phim trực tuyến với các tính năng (đăng nhập/đăng ký, phát video, like, upload.) Tối ưu hóa lại giao diện tăng trải nghiệm cho người dùng.",
+            "description": "Sử dụng các công nghệ (HTML, CSS, JavaScript, TailwindCSS). Phát triển ứng dụng To Do List với các chức năng quản lý công việc như thêm, sửa, xóa, đánh dấu hoàn thành và tìm kiếm công việc. Tối ưu hóa giao diện nhằm nâng cao trải nghiệm người dùng và khả năng sử dụng trên nhiều thiết bị.",
             "links": {
                 "demo": "https://thuaanfy.github.io/WebQuanLiCongViec/",
                 "github": "https://github.com/THUAANFY/WebQuanLiCongViec"
@@ -168,7 +169,7 @@
             "title": "Website Câu Hỏi Trắc Nghiệm",
             "image": "images/question.jpg",
             "alt": "Website Câu Hỏi Trắc Nghiệm",
-            "description": "Sử dụng các công nghệ (Java, HTML, CSS, Bootstrap, SQLServer). Phát triển nền tảng website xem phim trực tuyến với các tính năng (đăng nhập/đăng ký, phát video, like, upload.) Tối ưu hóa lại giao diện tăng trải nghiệm cho người dùng.",
+            "description": "Sử dụng các công nghệ (HTML, CSS, JavaScript, TailwindCSS). Phát triển ứng dụng Câu Hỏi Trắc Nghiệm với các chức năng như hiển thị câu hỏi, chọn đáp án, tính điểm và hiển thị kết quả sau khi hoàn thành bài kiểm tra. Tối ưu hóa giao diện nhằm nâng cao trải nghiệm người dùng và khả năng tương thích trên nhiều thiết bị.",
             "links": {
                 "demo": "https://thuaanfy.github.io/tracnghiemchinhtri/",
                 "github": "https://github.com/THUAANFY/tracnghiemchinhtri"
